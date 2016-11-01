@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.speech.RecognizerIntent;
+import android.support.v4.view.GravityCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -22,11 +23,14 @@ import android.widget.Toast;
 
 import com.projects.diego.todolist.db.TaskContract;
 import com.projects.diego.todolist.db.TaskDbHelper;
+import android.support.design.widget.NavigationView;
+import android.support.v4.widget.DrawerLayout;
 
 import java.util.ArrayList;
 import java.util.Locale;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity
+        implements NavigationView.OnNavigationItemSelectedListener {
 
     private static final String TAG = "MainActivity";
     private TaskDbHelper mHelper;
@@ -42,6 +46,9 @@ public class MainActivity extends AppCompatActivity {
 
         mHelper = new TaskDbHelper(this);
         mTaskListView = (ListView) findViewById(R.id.list_todo);
+
+        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(this);
 
         updateUI();
     }
@@ -153,6 +160,29 @@ public class MainActivity extends AppCompatActivity {
             }
 
         }
+    }
+
+    public boolean onNavigationItemSelected(MenuItem item) {
+        // Handle navigation view item clicks here.
+        int id = item.getItemId();
+
+        if (id == R.id.nav_camera) {
+            // Handle the camera action
+        } else if (id == R.id.nav_camera) {
+
+        } else if (id == R.id.nav_camera) {
+
+        } else if (id == R.id.nav_camera) {
+
+        } else if (id == R.id.nav_share) {
+
+        } else if (id == R.id.nav_send) {
+
+        }
+
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        drawer.closeDrawer(GravityCompat.START);
+        return true;
     }
 
 }
